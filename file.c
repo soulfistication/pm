@@ -23,7 +23,7 @@ void import_pan_effect(note_t *note)
 /* change a protracker effect to IT style */
 void pt_import_effect(note_t *note)
 {
-	uint8_t effects[16] = ".FEGHLKR.ODB....";
+	uint8_t effects[17] = ".FEGHLKR.ODB....";
 	uint8_t ext_trans[16] = { 0, 0, 0, 0x10, 0x30, 0x20, 0xb0, 0x40, 0, 0, 0, 0, 0, 0, 0, 0 };
 	
 	switch (note->effect) {
