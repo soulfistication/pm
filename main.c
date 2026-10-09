@@ -116,6 +116,8 @@ void print_row(song_t *song)
 		hl = BRIGHT GREEN;
 		sep = MAGENTA "|" BRIGHT GREEN;
 	}
+
+	printf("hl = %s", hl);
 	
 	printf(GRAY "%02X.%02X C%03d/%03d", song->cur_pattern, song->cur_row, song->num_voices, song->max_voices);
 	
