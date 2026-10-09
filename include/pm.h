@@ -14,7 +14,15 @@
 
 #include <ao/ao.h>
 
-#include <byteswap.h>
+#ifdef __APPLE__
+    #include <libkern/OSByteOrder.h>
+    #define bswap_16(x) OSSwapInt16(x)
+    #define bswap_32(x) OSSwapInt32(x)
+    #define bswap_64(x) OSSwapInt64(x)
+#else
+    #include <byteswap.h>
+#endif
+
 #ifdef WORDS_BIGENDIAN
 # define bswapLE16(x) bswap_16(x)
 # define bswapLE32(x) bswap_32(x)
