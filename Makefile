@@ -4,7 +4,7 @@ SHELL := /bin/sh
 CC := cc
 RM := rm -f
 
-CFLAGS := -Wall -W -Werror -Iinclude
+CFLAGS := -Wall -W -Werror -Iinclude -I/opt/homebrew/include 
 
 #CFLAGS += -O3 -fomit-frame-pointer -funroll-loops -frerun-cse-after-loop -fno-strength-reduce
 CFLAGS += -g3
