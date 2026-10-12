@@ -289,7 +289,7 @@ int main(int argc, char **argv)
 	int8_t buf[2048];
 	int r, n;
 	ao_device *dev;
-	ao_sample_format fmt = {16, MIXING_RATE, 2, AO_FMT_NATIVE};
+	ao_sample_format fmt = {16, MIXING_RATE, 2, AO_FMT_NATIVE, "L,R" };
 
 	if (argc < 2) {
 		printf("usage: %s <filename>...\n", argv[0]);
