@@ -173,8 +173,8 @@ void dump_samples(song_t *song)
 	printf("\t #  Title                      Filename      DataPtr.  Length  LStart  L.End.  Vl  C5Spd  Flags\n");
 	printf("\t--  -------------------------  ------------  --------  ------  ------  ------  --  -----  -----\n");
 	for (n = 1, s = song->samples + 1; n < MAX_SAMPLES; n++, s++) {
-		printf("\t%2d  %-25s  %-12s  %8X  %6ld  %6ld  %6ld  %2d  %5d ",
-		       n, s->title, s->filename, (int) s->data,
+		printf("\t%2d  %-25s  %-12s  %8p  %6ld  %6ld  %6ld  %2d  %5d ",
+		       n, s->title, s->filename, s->data,
 		       s->length, s->loop_start, s->loop_end,
 		       s->volume, s->c5speed);
 		if (s->flags & SAMP_LOOP) {
