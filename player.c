@@ -1167,6 +1167,9 @@ void handle_voices_final(song_t *song)
 	int p1, p2;
 	voice_t *voice;
 	instrument_t *inst;
+
+	vp = 0;
+	printf("vp = %d", vp);
 	
 	for (n = 0, voice = song->voices; n < MAX_VOICES; n++, voice++) {
 		if (!voice->data) continue;

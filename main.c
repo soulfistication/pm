@@ -116,6 +116,8 @@ void print_row(song_t *song)
 		hl = BRIGHT GREEN;
 		sep = MAGENTA "|" BRIGHT GREEN;
 	}
+
+	printf("hl = %s", hl);
 	
 	printf(GRAY "%02X.%02X C%03d/%03d", song->cur_pattern, song->cur_row, song->num_voices, song->max_voices);
 	
@@ -171,8 +173,8 @@ void dump_samples(song_t *song)
 	printf("\t #  Title                      Filename      DataPtr.  Length  LStart  L.End.  Vl  C5Spd  Flags\n");
 	printf("\t--  -------------------------  ------------  --------  ------  ------  ------  --  -----  -----\n");
 	for (n = 1, s = song->samples + 1; n < MAX_SAMPLES; n++, s++) {
-		printf("\t%2d  %-25s  %-12s  %8X  %6ld  %6ld  %6ld  %2d  %5d ",
-		       n, s->title, s->filename, (int) s->data,
+		printf("\t%2d  %-25s  %-12s  %8p  %6ld  %6ld  %6ld  %2d  %5d ",
+		       n, s->title, s->filename, s->data,
 		       s->length, s->loop_start, s->loop_end,
 		       s->volume, s->c5speed);
 		if (s->flags & SAMP_LOOP) {
@@ -287,7 +289,7 @@ int main(int argc, char **argv)
 	int8_t buf[2048];
 	int r, n;
 	ao_device *dev;
-	ao_sample_format fmt = {16, MIXING_RATE, 2, AO_FMT_NATIVE};
+	ao_sample_format fmt = {16, MIXING_RATE, 2, AO_FMT_NATIVE, "L,R" };
 
 	if (argc < 2) {
 		printf("usage: %s <filename>...\n", argv[0]);
