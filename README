@@ -1,5 +1,8 @@
+Remember to compile with macOS brew path: $LIBRARY_PATH 
 
+fish shell example:
 
+set -g -x LIBRARY_PATH $LIBRARY_PATH /opt/homebrew/lib
 
 ---
 
