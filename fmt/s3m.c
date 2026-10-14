@@ -153,7 +153,7 @@ int fmt_s3m_load(song_t *song, FILE *fp)
 	
 	/* sample data */
 	for (n = 0, sample = song->samples + 1; n < nsmp; n++, sample++) {
-		char *ptr;
+		int8_t *ptr;
 		uint32_t len = sample->length;
 		int bps = 1;    /* bytes per sample (i.e. bits / 8) */
 		
