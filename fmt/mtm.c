@@ -137,7 +137,7 @@ int fmt_mtm_load(song_t *song, FILE *fp)
 
         /* sample data */
         for (smp = 1; smp <= nsmp; smp++) {
-                char *ptr;
+                int8_t *ptr;
                 int bps = 1;    /* bytes per sample (i.e. bits / 8) */
 
                 if (song->samples[smp].length == 0)
