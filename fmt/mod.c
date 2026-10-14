@@ -164,7 +164,7 @@ int fmt_mod_load(song_t *song, FILE *fp)
 	
 	/* sample data */
 	for (n = 1; n < 32; n++) {
-		char *ptr;
+		int8_t *ptr;
 		
 		if (song->samples[n].length == 0)
 			continue;
