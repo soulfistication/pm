@@ -129,7 +129,7 @@ unsigned long song_get_length(void)
 }
 signed char *song_sample_allocate(int bytes)
 {
-	return (char*)malloc(bytes);
+	return (signed char*)malloc(bytes);
 }
 void song_sample_free(signed char *data)
 {

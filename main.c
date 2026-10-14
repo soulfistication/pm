@@ -286,7 +286,7 @@ void dump_pattern(song_t *song, int n)
 int main(int argc, char **argv)
 {
 	song_t *song;
-	int8_t buf[2048];
+	char buf[2048];
 	int r, n;
 	ao_device *dev;
 	ao_sample_format fmt = {16, MIXING_RATE, 2, AO_FMT_NATIVE, "L,R" };

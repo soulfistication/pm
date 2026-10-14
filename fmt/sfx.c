@@ -114,7 +114,7 @@ int fmt_sfx_load(song_t *song, FILE *fp)
 	
 	/* sample data */
 	for (n = 0, sample = song->samples + 1; n < 31; n++, sample++) {
-		char *ptr;
+		int8_t *ptr;
 		
 		if (!sample->length)
 			continue;

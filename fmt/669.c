@@ -4,7 +4,7 @@
 
 int fmt_669_load(song_t *song, FILE *fp)
 {
-        uint8_t b[16];
+        char b[16];
         uint16_t npat, nsmp;
         int n, pat, chan, smp, row;
         note_t *note;
@@ -88,10 +88,10 @@ int fmt_669_load(song_t *song, FILE *fp)
                                 fread(b, 3, 1, fp);
 
                                 switch (b[0]) {
-                                case 0xfe:     /* no note, only volume */
+                                case (char)0xfe:     /* no note, only volume */
                                         note->volume = (b[1] & 0xf) << 2;
                                         break;
-                                case 0xff:     /* no note or volume */
+                                case (char)0xff:     /* no note or volume */
                                         break;
                                 default:
                                         note->note = (b[0] >> 2) + 36;
@@ -100,7 +100,7 @@ int fmt_669_load(song_t *song, FILE *fp)
                                         break;
                                 }
                                 /* (sloppily) import the stupid effect */
-                                if (b[2] != 0xff)
+                                if (b[2] != (char)0xff)
                                         effect[chan] = b[2];
                                 if (effect[chan] == 0xff)
                                         continue;
@@ -194,7 +194,7 @@ int fmt_669_load(song_t *song, FILE *fp)
 
         /* sample data */
         for (smp = 1; smp <= nsmp; smp++) {
-                uint8_t *ptr;
+                int8_t *ptr;
 		
                 if (song->samples[smp].length == 0)
                         continue;

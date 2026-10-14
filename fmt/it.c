@@ -310,7 +310,7 @@ int fmt_it_load(song_t *song, FILE *fp)
 			sample->flags |= SAMP_PINGPONG;
 		
 		if (shdr.flag & 1) {
-			uint8_t *ptr;
+			int8_t *ptr;
 			uint32_t len = sample->length;
 			
 			/* read the data */
